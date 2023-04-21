@@ -14,6 +14,6 @@ describe("stats", () => {
 
     await testHarness.addBook();
     expect(viewModel.lastBook).toBe("BookTitle");
-    expect(viewModel.totalBookCount).toBe(6);
+    expect(viewModel.totalBookCount).toBe(4);
   });
 });

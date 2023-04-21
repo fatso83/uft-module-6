@@ -1,4 +1,4 @@
-export default function GetPublicBooksStub() {
+export function GetPublicBooksStub() {
   return {
     success: true,
     result: [
@@ -35,3 +35,4 @@ export default function GetPublicBooksStub() {
     ]
   };
 }
+

@@ -1,17 +1,25 @@
 import HttpGateway from "../Shared/HttpGateway";
 import Observable from "../Shared/Observable";
+import sortingRepository from "./SortingRepository";
 
 class BooksRepository {
   gateway = new HttpGateway();
   booksPm = new Observable([]);
   lastAddedBookPm = new Observable("");
 
+  #order = null;
+
+  constructor() {
+    sortingRepository.subscribeToSortOrder((sortingOrder) => {
+      this.#order = sortingOrder;
+      this.#applyTransformationsAndUpdatePM(this.booksPm.value);
+    });
+  }
+
   subscribeToBooks = async (callback) => {
     this.booksPm.subscribe(callback);
     if (this.booksPm.value.length === 0) {
       await this.loadApiData();
-    } else {
-      this.refreshModelData(callback);
     }
   };
 
@@ -36,15 +44,22 @@ class BooksRepository {
 
   loadApiData = async () => {
     const dto = await this.gateway.get("/books");
-    this.booksPm.value = dto.result.map((dtoItem) => {
-      return dtoItem;
-    });
+    const pmBooks = dto.result.map((dtoItem) => dtoItem);
+    this.#applyTransformationsAndUpdatePM(pmBooks);
   };
 
-  refreshModelData = () => {
-    this.booksPm.value = this.booksPm.value.map((pm) => {
-      return pm;
-    });
+  #applyTransformationsAndUpdatePM = (listOfPmBooks) => {
+    this.booksPm.value = this.#applySorting(listOfPmBooks);
+  };
+
+  #applySorting = (list) => {
+    if (["ASC", "DESC"].includes(this.#order)) {
+      const direction = this.#order === "ASC" || -1;
+      return list.slice().sort((a, b) => {
+        return direction * a.name.localeCompare(b.name);
+      });
+    }
+    return list;
   };
 
   reset = async () => {

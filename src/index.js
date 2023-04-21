@@ -5,6 +5,7 @@ import BookListComponent from "./Books/BookListComponent";
 import BookResetterComponent from "./Books/BookResetterComponent";
 import React from "react";
 import ReactDOM from "react-dom";
+import SortComponent from "./Books/SortComponent";
 import StatsComponent from "./Stats/StatsComponent";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
         </div>
         <div className="flex-row-item">
           <BookListComponent />
+        </div>
+        <div className="flex-row-item">
+          <SortComponent />
         </div>
       </div>
     </>
