@@ -1,10 +1,11 @@
+import "./styles.css";
+
+import AddBooksComponent from "./Books/AddBooksComponent";
+import BookListComponent from "./Books/BookListComponent";
+import BookResetterComponent from "./Books/BookResetterComponent";
 import React from "react";
 import ReactDOM from "react-dom";
 import StatsComponent from "./Stats/StatsComponent";
-import AddBooksComponent from "./Books/AddBooksComponent";
-import BookListComponent from "./Books/BookListComponent";
-
-import "./styles.css";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="flex-row-container">
         <div className="flex-row-item">
           <AddBooksComponent />
+          <BookResetterComponent />
         </div>
         <div className="flex-row-item">
           <StatsComponent />

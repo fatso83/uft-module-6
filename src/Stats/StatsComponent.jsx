@@ -15,7 +15,9 @@ export default function StatsComponent() {
   return (
     <div>
       <h5>Last Added Book (ui)</h5>
-      {stateViewModel}
+      {stateViewModel.lastBook}
+      <h5>Number of books</h5>
+      {stateViewModel.totalBookCount}
     </div>
   );
 }

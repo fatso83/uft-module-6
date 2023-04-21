@@ -1,8 +1,8 @@
-import StatsPresenter from "./StatsPresenter";
 import BookAdderTestHarness from "../TestTools/BookAdderTestHarness";
+import StatsPresenter from "./StatsPresenter";
 
 describe("stats", () => {
-  it("should show last added book", async () => {
+  it("should show last added book and book count", async () => {
     let viewModel = null;
     const testHarness = new BookAdderTestHarness();
     const presenter = new StatsPresenter();
@@ -10,9 +10,10 @@ describe("stats", () => {
 
     // anchor
     await presenter.load((gm) => (viewModel = gm));
-    expect(viewModel).toBe("");
+    expect(viewModel.lastBook).toBe("");
 
     await testHarness.addBook();
-    expect(viewModel).toBe("BookTitle");
+    expect(viewModel.lastBook).toBe("BookTitle");
+    expect(viewModel.totalBookCount).toBe(6);
   });
 });
