@@ -12,7 +12,7 @@ export default class StatsPresenter {
         viewModel.lastBook = results[0];
         viewModel.totalBookCount = results[1];
         callback(viewModel);
-      }
+      },
     );
   };
 }
@@ -38,7 +38,7 @@ function multiSubscribe(subsWithDefaults, singleCallback) {
       observerFunction((val) => {
         results[index] = val;
         singleCallback(results);
-      })
+      }),
     );
   });
   return Promise.all(initialLoads);

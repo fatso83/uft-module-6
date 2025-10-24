@@ -1,4 +1,5 @@
 import HttpGateway from "../Shared/HttpGateway";
+import timeGateway from "../Shared/TimeGateway";
 import Observable from "../Shared/Observable";
 import sortingRepository from "./SortingRepository";
 
@@ -29,9 +30,15 @@ class BooksRepository {
       author: programmersModel.author,
       ownerId: "carlerik@gmail.com",
     };
+
+    // Fix for eventual consistency: optimistic update
+    this.booksPm.value = this.booksPm.value.concat([dto]);
+
     await this.gateway.post("/books", dto);
-    await this.loadApiData();
     this.lastAddedBookPm.value = programmersModel.name;
+
+    // eventual consistency for the key-value store often exceeds 2-3 seconds
+    await timeGateway.timeout(6000).then(this.loadApiData);
   };
 
   subscribeToLastAddedBook = async (callback) => {
