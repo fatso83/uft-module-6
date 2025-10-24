@@ -5,14 +5,16 @@ import GetPublicBooksStub from "./GetPublicBooksStub";
 import Observable from "../Shared/Observable";
 import SortBooksPresenter from "../Books/SortBooksPresenter";
 import booksRepository from "../Books/BooksRepository";
+import timeGateway from "../Shared/TimeGateway";
 
 export default class BookAdderTestHarness {
   async init(callback) {
     const httpGateway = {};
     httpGateway.post = jest.fn();
     httpGateway.get = jest.fn((path) =>
-      path === "/allbooks" ? GetPublicBooksStub() : GetPrivateBooksStub()
+      path === "/allbooks" ? GetPublicBooksStub() : GetPrivateBooksStub(),
     );
+    timeGateway.timeout = jest.fn(() => Promise.resolve());
     booksRepository.gateway = httpGateway;
     booksRepository.booksPm = new Observable([]);
     const sortPresenter = new SortBooksPresenter();

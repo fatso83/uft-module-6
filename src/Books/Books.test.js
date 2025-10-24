@@ -51,7 +51,7 @@ describe("resetting", () => {
       async (path) => {
         if (path === "/reset") return;
         return { result: [] };
-      }
+      },
     ));
 
     const resetPresenter = new BookResetterPresenter();

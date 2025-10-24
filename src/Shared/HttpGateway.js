@@ -1,5 +1,6 @@
 export default class HttpGateway {
-  apiUrl = "https://api.logicroom.co/api/carlerik@gmail.com";
+  apiUrl = "https://books-api.carlerik.workers.dev/api/foobar@baz.com";
+  //apiUrl = "http://localhost:8787/api/foobar@baz.com";
   get = async (path) => {
     const response = await fetch(this.apiUrl + path);
     const dto = response.json();
@@ -11,8 +12,8 @@ export default class HttpGateway {
       method: "POST",
       body: JSON.stringify(requestDto),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     });
     const responseDto = response.json();
     return responseDto;

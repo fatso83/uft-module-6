@@ -1,7 +1,7 @@
 {
   "name": "uft-module-6-exercise",
   "engines": {
-      "node": "16"
+    "node": "16"
   },
   "description": "How we create a fast-test architecture from scratch.",
   "keywords": [],
