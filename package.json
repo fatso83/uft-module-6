@@ -3,6 +3,7 @@
   "engines": {
     "node": "16"
   },
+  "homepage": "https://fatso83.github.io/uft-module-6/",
   "description": "How we create a fast-test architecture from scratch.",
   "keywords": [],
   "main": "src/index.js",
