@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.3cd1dfc5.chunk.css",
-    "main.js": "/static/js/main.6e94a8ab.chunk.js",
-    "main.js.map": "/static/js/main.6e94a8ab.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.92c5db8b.chunk.js": "/static/js/2.92c5db8b.chunk.js",
-    "static/js/2.92c5db8b.chunk.js.map": "/static/js/2.92c5db8b.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.7ffc288cae88b2011860c6276e24d524.js": "/precache-manifest.7ffc288cae88b2011860c6276e24d524.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.3cd1dfc5.chunk.css.map": "/static/css/main.3cd1dfc5.chunk.css.map"
+    "main.css": "/uft-module-6/static/css/main.3cd1dfc5.chunk.css",
+    "main.js": "/uft-module-6/static/js/main.6e94a8ab.chunk.js",
+    "main.js.map": "/uft-module-6/static/js/main.6e94a8ab.chunk.js.map",
+    "runtime~main.js": "/uft-module-6/static/js/runtime~main.0438cc81.js",
+    "runtime~main.js.map": "/uft-module-6/static/js/runtime~main.0438cc81.js.map",
+    "static/js/2.92c5db8b.chunk.js": "/uft-module-6/static/js/2.92c5db8b.chunk.js",
+    "static/js/2.92c5db8b.chunk.js.map": "/uft-module-6/static/js/2.92c5db8b.chunk.js.map",
+    "index.html": "/uft-module-6/index.html",
+    "precache-manifest.9286dcb211223e1a0d52d24712c21335.js": "/uft-module-6/precache-manifest.9286dcb211223e1a0d52d24712c21335.js",
+    "service-worker.js": "/uft-module-6/service-worker.js",
+    "static/css/main.3cd1dfc5.chunk.css.map": "/uft-module-6/static/css/main.3cd1dfc5.chunk.css.map"
   }
 }
