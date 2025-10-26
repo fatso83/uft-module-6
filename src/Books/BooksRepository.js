@@ -1,5 +1,4 @@
 import HttpGateway from "../Shared/HttpGateway";
-import timeGateway from "../Shared/TimeGateway";
 import Observable from "../Shared/Observable";
 import sortingRepository from "./SortingRepository";
 
@@ -38,7 +37,7 @@ class BooksRepository {
     this.lastAddedBookPm.value = programmersModel.name;
 
     // eventual consistency for the key-value store often exceeds 2-3 seconds
-    await timeGateway.timeout(6000).then(this.loadApiData);
+    await this.loadApiData();
   };
 
   subscribeToLastAddedBook = async (callback) => {
